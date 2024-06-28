@@ -110,7 +110,11 @@ GROUP BY r.id_recipe
 
 17 -
 
-
+SELECT r.id_recipe, r.recipe_name
+FROM recipe r
+LEFT JOIN recipe_ingredients ir
+ON r.id_recipe = ir.id_recipe
+WHERE ir.id_recipe IS NULL;
 
 18 -
 
