@@ -136,16 +136,6 @@ VALUE ('1','77','11');
 
 20 - Trouver la recette la plus coûteuse de la base de données
 
-WITH prixCouteux AS (SELECT r.recipe_name, SUM(ri.quantity * i.price) AS total
-FROM recipe_ingredients ri 
-INNER JOIN ingredient i ON ri.id_ingredient = i.id_ingredient
-INNER JOIN recipe r ON r.id_recipe = ri.id_recipe
-GROUP BY r.recipe_name)
-SELECT recipe_name, total
-FROM prixCouteux
-WHERE total = (SELECT MAX(total) FROM prixCouteux);
-
--------------
 
 SELECT r.recipe_name, ROUND(SUM(ri.quantity * i.price),2) AS coutTotal
 FROM recipe r
