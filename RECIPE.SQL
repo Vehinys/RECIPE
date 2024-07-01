@@ -42,7 +42,7 @@ WHERE id_recipe = 3;
 DELETE FROM recipe 
 WHERE id_recipe = 2
 
-8 - REFAIRE
+8 - 
 
 SELECT SUM(ri.quantity * i.price) AS "Prix de la recette"
 FROM recipe_ingredients ri 
@@ -130,6 +130,8 @@ HAVING COUNT(ri.id_ingredient) >= 3
 INSERT INTO recipe_ingredients (quantity,id_ingredient,id_recipe)
 VALUE ('1','77','11');
 
+
+
 20 - VERSION AVEC LIMIT SI PAS D EXCEQUO
 
 SELECT r.recipe_name, SUM(ri.quantity * i.price) AS prix_total
@@ -141,7 +143,6 @@ ON	r.id_recipe = ri.id_recipe
 GROUP BY r.recipe_name
 ORDER BY prix_total DESC
 LIMIT 1;
-
 
 20 - VERSION SANS LIMIT
 
